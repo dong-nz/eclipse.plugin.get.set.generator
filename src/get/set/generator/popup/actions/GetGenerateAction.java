@@ -1,0 +1,48 @@
+package get.set.generator.popup.actions;
+
+import get.set.generator.util.ActionType;
+
+import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IActionDelegate;
+import org.eclipse.ui.IObjectActionDelegate;
+import org.eclipse.ui.IWorkbenchPart;
+
+public class GetGenerateAction implements IObjectActionDelegate {
+
+	private Shell shell;
+
+	/**
+	 * Constructor for Action1.
+	 */
+	public GetGenerateAction() {
+		super();
+	}
+
+	/**
+	 * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
+	 */
+	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
+		shell = targetPart.getSite().getShell();
+	}
+
+	/**
+	 * @see IActionDelegate#run(IAction)
+	 */
+	public void run(IAction action) {
+		try {
+			GetSetActionBuilder actionBuilder = new GetSetActionBuilder(
+					ActionType.GET);
+			actionBuilder.doAction();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	/**
+	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
+	 */
+	public void selectionChanged(IAction action, ISelection selection) {
+	}
+}

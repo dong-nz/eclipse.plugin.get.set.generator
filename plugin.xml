@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="get.set.generator.contribution"
+            nameFilter="*.java"
+            objectClass="org.eclipse.ui.IEditorInput">
+         <menu
+               label="Get Set Generator"
+               path="additions"
+               id="get.set.generator.menu">
+            <separator
+                  name="group">
+            </separator>
+         </menu>
+         <action
+               label="Generate Set Methods"
+               class="get.set.generator.popup.actions.SetGenerateAction"
+               menubarPath="get.set.generator.menu/group"
+               enablesFor="1"
+               id="get.set.generator.setAction">
+         </action>
+         
+         <action
+               label="Generate Get Methods"
+               class="get.set.generator.popup.actions.GetGenerateAction"
+               menubarPath="get.set.generator.menu/group"
+               enablesFor="1"
+               id="get.set.generator.getAction">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>
